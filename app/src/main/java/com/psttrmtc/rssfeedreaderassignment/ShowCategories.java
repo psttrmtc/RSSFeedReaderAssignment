@@ -2,6 +2,7 @@ package com.psttrmtc.rssfeedreaderassignment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,14 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class ShowCategories extends AppCompatActivity {
+public class ShowCategories extends Activity {
     ArrayAdapter<String> adapterMainSubjects;
     int choosenNews;
     ListView myMainListView;
     Context context;
     RSSItem selectedNewsItem;
     String titleNews;
-
+    TextView title;
     String[][][] myUrlCaptionMenu = {
         {// Thanh Nien News
                 {"https://thanhnien.vn/rss/video-316.rss", "Video"},
@@ -49,7 +50,31 @@ public class ShowCategories extends AppCompatActivity {
                 {"https://vnexpress.net/rss/thoi-su.rss", "Giáo dục"},
                 {"https://vnexpress.net/rss/thoi-su.rss", "Tin mới nhất"},
                 {"https://vnexpress.net/rss/thoi-su.rss", "Tin nổi bật"},
-        }
+        },
+        // Báo Tin Tức
+            {
+                    {"https://baotintuc.vn/tin-moi-nhat.rss", "Trang chủ"},
+                    {"https://baotintuc.vn/thoi-su.rss", "Thời sự"},
+                    {"https://baotintuc.vn/the-gioi.rss", "Thế Giới"},
+                    {"https://baotintuc.vn/kinh-te.rss", "Kinh tế"},
+                    {"https://baotintuc.vn/xa-hoi.rss", "Xã hội"},
+                    {"https://baotintuc.vn/phap-luat.rss", "Pháp luật"},
+                    {"https://baotintuc.vn/van-hoa.rss", "Văn hóa"},
+                    {"https://baotintuc.vn/giao-duc.rss", "Giáo dục"},
+                    {"https://baotintuc.vn/the-thao.rss", "Thể thao"},
+                    {"https://baotintuc.vn/ho-so.rss", "Hồ sơ"},
+                    {"https://baotintuc.vn/quan-su.rss", "Quân sự"},
+                    {"https://baotintuc.vn/khoa-hoc-cong-nghe.rss", "Khoa học - công nghệ"},
+                    {"https://baotintuc.vn/bien-dao-viet-nam.rss", "Biển đảo"},
+                    {"https://baotintuc.vn/suc-khoe.rss", "Sức khỏe"},
+                    {"https://baotintuc.vn/dia-phuong.rss", "Địa phương"},
+                    {"https://baotintuc.vn/video.rss", "Video"},
+                    {"https://baotintuc.vn/anh.rss", "Ảnh"},
+                    {"https://baotintuc.vn/emagazine.rss", "Infographic"},
+                    {"https://baotintuc.vn/ban-doc.rss", "Bạn đọc"},
+                    {"https://baotintuc.vn/anh-360.rss", "Ảnh 360"},
+
+            }
     };
     String[] myUrlCaption ;
     String[] myUrlAddress ;
@@ -62,8 +87,8 @@ public class ShowCategories extends AppCompatActivity {
         Bundle myBundle = callingIntent.getExtras();
         choosenNews = myBundle.getInt("News");
         titleNews = myBundle.getString("Title");
-
-        this.setTitle("Chanels in " + titleNews);
+        title = findViewById(R.id.txtTitle);
+        title.setText("Chanels in " + titleNews);
 
 
         myUrlCaption = new String[myUrlCaptionMenu[choosenNews].length];

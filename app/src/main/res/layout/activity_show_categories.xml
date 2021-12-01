@@ -5,7 +5,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ShowCategories">
+    tools:context=".ShowCategories"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textAlignment="textStart"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:background="@color/purple_500"
+        android:textColor="@color/white"
+        />
     <ListView
         android:id="@+id/myListView"
         android:layout_width="match_parent"

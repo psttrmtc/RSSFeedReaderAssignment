@@ -6,29 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <ImageButton
-            android:id="@+id/btnThanhNien"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="2sp"
-            android:src="@drawable/thanhnien"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            />
-        <ImageButton
-            android:id="@+id/btnVnExpress"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="2sp"
-            android:src="@drawable/vnexpress"
-            android:layout_weight="1"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
 
-    </LinearLayout>
+    <GridView
+        android:id="@+id/newsGridView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:choiceMode="singleChoice"
+        android:listSelector="@android:color/darker_gray"/>
 </LinearLayout>
